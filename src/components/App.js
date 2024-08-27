@@ -1,19 +1,20 @@
-
 import React, { useState } from "react";
 import './../styles/App.css';
 
 const App = () => {
-  const[name,setName] = useState("")
+  const [text, setText] = useState("");
+
   return (
     <div>
-        <label htmlFor="ip">Enter your name:</label><br></br>
-        <input onChange={(e) => {
-          setName(e.target.value)
-        }} type="text" id="ip" />
-
-        {name && <p>Hello {name}!</p>}
+      <label htmlFor="name">Enter your name:</label>
+      <input 
+        type="text" 
+        id="name" 
+        onChange={e => setText(e.target.value)} 
+      />
+     <p>{text && text.length>0?"Hello "+ text+"!":""}</p>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
